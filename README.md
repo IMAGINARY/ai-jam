@@ -47,7 +47,7 @@ yarn
 to install webpack and all dependencies. Then run
 
 ```
-webpack
+yarn run build
 ```
 
 to compile the sources into the public/build directory.

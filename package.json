@@ -36,5 +36,8 @@
   },
   "devDependencies": {
     "webpack": "^1.15.0"
+  },
+  "scripts": {
+    "build": "webpack"
   }
 }
