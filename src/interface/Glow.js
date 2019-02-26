@@ -32,33 +32,43 @@ class Glow {
 		this._element.appendChild(this._userGlow)
 
 		this._aiTime = -1
+		this._userTime = -1
 
 		this._boundLoop = this._loop.bind(this)
 		this._loop()
 
-		this._aiVisible = true
+		this._aiVisible = false;
+		this._userVisible = false;
 	}
 	_loop(){
 		requestAnimationFrame(this._boundLoop)
-		if (this._aiTime < 0 || Tone.now() > this._aiTime){
-			if (this._aiVisible){
-				this._aiVisible = false
-				this._aiGlow.classList.remove('visible')
-				this._userGlow.classList.add('visible')
-			}
-		} else {
+		const now = Tone.now();
+		if (this._aiTime > 0 && now < this._aiTime){
 			if (!this._aiVisible){
 				this._aiVisible = true
 				this._aiGlow.classList.add('visible')
+				this._userVisible = false;
 				this._userGlow.classList.remove('visible')
 			}
+		} else if (this._userTime > 0 && now < this._userTime) {
+			if (!this._userVisible){
+				this._userVisible = true
+				this._userGlow.classList.add('visible')
+				this._aiVisible = false;
+				this._aiGlow.classList.remove('visible')
+			}
+		} else {
+			this._userVisible = false;
+			this._userGlow.classList.remove('visible')
+			this._aiVisible = false;
+			this._aiGlow.classList.remove('visible')
 		}
 	}
-	ai(time){
-		this._aiTime = Math.max(this._aiTime, time + 0.3)
+	ai(){
+		this._aiTime = Tone.now() + 1.0;
 	}
 	user(){
-		this._aiTime = -1
+		this._userTime = Tone.now() + 1.0;
 	}
 }
 

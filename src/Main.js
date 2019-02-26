@@ -110,19 +110,14 @@ document.body.addEventListener('keyup', (e) => {
 keyboard.on('keyDown', (note, time, ai=false, drum=false) => {
 	sound.keyDown(note, time, ai, drum)
 	if (ai) {
-		glow.user()
-	} {
 		glow.ai()
+	} else {
+		glow.user()
 	}
 })
 
 keyboard.on('keyUp', (note, time, ai=false, drum=false) => {
 	sound.keyUp(note, time, ai, drum)
-	if (ai) {
-		glow.user()
-	} {
-		glow.ai()
-	}
 })
 
 midi.on('metronomeTick', (note) => {
