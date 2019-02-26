@@ -15,6 +15,9 @@
  */
 import events from 'events'
 
+const PIANO_INSTANCE = 0;
+const DRUM_INSTANCE = 1;
+
 const CLOCK_PORT_NAME = 'magenta_clock'
 const FROM_MAGENTA_PORT_NAME = 'magenta_out'
 const TO_MAGENTA_PIANO_PORT_NAME = 'magenta_piano_in'
@@ -145,10 +148,9 @@ class MagentaInstance {
 class Magenta extends events.EventEmitter {
   constructor(notifier){
     super()
-    this._instances = [
-        new MagentaInstance(TO_MAGENTA_PIANO_PORT_NAME, notifier, PIANO_MODELS),
-        new MagentaInstance(TO_MAGENTA_DRUMS_PORT_NAME, notifier, DRUM_MODELS)
-    ]
+    this._instances = [];
+    this._instances[PIANO_INSTANCE] = new MagentaInstance(TO_MAGENTA_PIANO_PORT_NAME, notifier, PIANO_MODELS);
+    this._instances[DRUM_INSTANCE] = new MagentaInstance(TO_MAGENTA_DRUMS_PORT_NAME, notifier, DRUM_MODELS);
     this._selected = 0
   }
 
@@ -191,6 +193,14 @@ class Magenta extends events.EventEmitter {
 
   instances() {
     return this._instances
+  }
+
+  drumInstance() {
+    return this._instances[DRUM_INSTANCE];
+  }
+
+  pianoInstance() {
+    return this._instances[PIANO_INSTANCE];
   }
 }
 

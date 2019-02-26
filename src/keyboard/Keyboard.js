@@ -83,15 +83,11 @@ class Keyboard extends events.EventEmitter{
 
 		//the midi input
 		this._midi.on('keyDown', (note, time, ai, drum) => {
-			if (this._drumMode == drum) {
-				this.keyDown(note, time, ai, drum)
-			}
+			this.keyDown(note, time, ai, drum)
 			this._emitKeyDown(note, time, ai, drum)
 		})
 		this._midi.on('keyUp', (note, time, ai, drum) => {
-			if (this._drumMode == drum) {
-				this.keyUp(note, time, ai, drum)
-			}
+			this.keyUp(note, time, ai, drum)
 			this._emitKeyUp(note, time, ai, drum)
 		})
 	}
@@ -122,7 +118,11 @@ class Keyboard extends events.EventEmitter{
 			return
 		}
 		if (!ai && !this._soloMode) {
-			this._magenta.selected().sendKeyDown(note)
+			if (drum) {
+				this._magenta.drumInstance().sendKeyDown(note);
+			} else {
+				this._magenta.pianoInstance().sendKeyDown(note);
+			}
 		}
 		if (!this._currentKeys[note]){
 			this._currentKeys[note] = 0
@@ -139,7 +139,11 @@ class Keyboard extends events.EventEmitter{
 			return
 		}
 		if (!ai && !this._soloMode) {
-			this._magenta.selected().sendKeyUp(note)
+			if (drum) {
+				this._magenta.drumInstance().sendKeyUp(note);
+			} else {
+				this._magenta.pianoInstance().sendKeyUp(note);
+			}
 		}
 		//add a little time to it in edge cases where the keydown and keyup are at the same time
 		time += 0.01
