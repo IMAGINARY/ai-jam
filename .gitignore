@@ -1,5 +1,6 @@
 env
 node_modules
 models/*
+public/cfg/config.yml
 
 !/**/.gitkeep

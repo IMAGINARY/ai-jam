@@ -150,6 +150,14 @@ class Controls {
     this._magenta.selected().setTemperature(this._tempSlider.value)
   }
 
+  hide() {
+    this._container.style.display = 'none';
+  }
+
+  show() {
+    this._container.style.display = 'block';
+  }
+
   reset() {
     // Reset button states.
     this.setCallBars(this._magenta.selected().callBars())

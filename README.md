@@ -29,6 +29,13 @@ virtualenv --python=/usr/bin/python2.7 <env directory>
 
 4. Make the `public` directory accesible using a web server.
 
+## Configuration
+
+Copy the `public/cfg/sample.config.yml` to `public/cfg/config.yml` and modify it by following the comments.
+
+The app validates the config file using a schema and if there are any problems while parsing you'll find out by
+reading the console log.
+
 ## Running
 
 Run the `RUN.sh` script to start the engine. Give it some seconds to init and then open the web app by pointing

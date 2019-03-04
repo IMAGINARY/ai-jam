@@ -1,0 +1,9 @@
+#
+# Hide the "Info" button in the UI (which shows the "credits / info" screen).
+#
+hideInfoButton: true
+
+#
+# Hide the UI which allows manual adjusting of low level model parameters.
+#
+hideManualControls: true
