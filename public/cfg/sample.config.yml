@@ -7,3 +7,12 @@ hideInfoButton: true
 # Hide the UI which allows manual adjusting of low level model parameters.
 #
 hideManualControls: true
+
+#
+# Skip the start screen
+# The start screen is REQUIRED for running ai-jam on a regular browser
+# because a click is needed before the sound subsystem works...
+# but can be skipped in our kiosk browser which disables that security
+# requirement.
+#
+skipStartScreen: false

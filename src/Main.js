@@ -29,34 +29,6 @@ import Tone from 'Tone/core/Tone'
 
 const cfgLoader = new CfgLoader();
 cfgLoader.load('cfg/config.yml').then((cfg) => {
-	/////////////// SPLASH ///////////////////
-
-	const about = new About(document.body)
-	const splash = new Splash(document.body)
-
-	splash.on('click', () => {
-		keyboard.activate()
-		if (!cfg.hideInfoButton) {
-			about.showButton()
-		}
-	})
-	splash.on('about', () => {
-		about.open(true)
-	})
-	about.on('close', () => {
-		if (!splash.loaded || splash.isOpen()){
-			splash.show()
-		} else {
-			keyboard.activate()
-		}
-	})
-	about.on('open', () => {
-		keyboard.deactivate()
-		if (splash.isOpen()){
-			splash.hide()
-		}
-	})
-
 
 /////////////// PIANO ///////////////////
 
@@ -140,6 +112,43 @@ cfgLoader.load('cfg/config.yml').then((cfg) => {
 			sound.metronomeTick(note)
 		}
 	})
+
+	/////////////// SPLASH ///////////////////
+
+	const about = new About(document.body)
+
+	function startApp() {
+		keyboard.activate()
+		if (!cfg.hideInfoButton) {
+			about.showButton()
+		}
+	}
+
+	if (cfg.skipStartScreen) {
+		startApp();
+	} else {
+		const splash = new Splash(document.body)
+		splash.on('click', () => {
+			startApp();
+		})
+		splash.on('about', () => {
+			about.open(true)
+		})
+		about.on('close', () => {
+			if (!splash.loaded || splash.isOpen()){
+				splash.show()
+			} else {
+				keyboard.activate()
+			}
+		})
+		about.on('open', () => {
+			keyboard.deactivate()
+			if (splash.isOpen()){
+				splash.hide()
+			}
+		})
+	}
+
 }).catch((err) => {
 	console.error(err);
 });

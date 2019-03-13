@@ -38,6 +38,8 @@ virtualenv --python=/usr/bin/python2.7 <env directory>
 
 4. Make the `public` directory accesible using a web server.
 
+5. Run the INSTALL.sh script to download the models.
+
 ## Configuration
 
 Copy the `public/cfg/sample.config.yml` to `public/cfg/config.yml` and modify it by following the comments.
