@@ -25,7 +25,7 @@ echo "MIDI Clock port found: ${FULL_CLOCK_PORT}"
 
 echo "Starting Drum process"
 ${PYTHONENV}/bin/magenta_midi \
-  --input_ports="magenta_drums_in,"${FULL_CLOCK_PORT} \
+  --input_ports="magenta_drums_in,${FULL_CLOCK_PORT}" \
   --output_ports="magenta_out" \
   --bundle_files=${MODELPATH}/drum_kit_rnn.mag\
   --qpm=120 \
@@ -49,7 +49,7 @@ trap "kill ${MIDI_CLOCK} ${MAGENTA_DRUMS}; exit 1" SIGINT SIGTERM EXIT INT
 
 echo "Starting Piano process"
 ${PYTHONENV}/bin/magenta_midi \
-  --input_ports="magenta_piano_in,"${FULL_CLOCK_PORT} \
+  --input_ports="magenta_piano_in,${FULL_CLOCK_PORT}" \
   --output_ports="magenta_out" \
   --bundle_files=${MODELPATH}/attention_rnn.mag,${MODELPATH}/pianoroll_rnn_nade.mag \
   --qpm=120 \
