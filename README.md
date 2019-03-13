@@ -10,19 +10,28 @@ dependencies.
 
 ## Installation
 
-1. Install virtualenv:
+0. If on Linux install the Magenta dependencies
+
 ```
-pip install virtualenv
+sudo apt-get install build-essential libasound2-dev libjack-dev
 ```
 
-2. Create a virtual environment for Python 2.7:
+
+1. Install virtualenv (if needed):
+```
+sudo pip install virtualenv
+```
+
+2. Create a virtual environment for Python 2.7 (change the Python bin as appropriate):
 
 ```
 virtualenv --python=/usr/bin/python2.7 <env directory>
 ```
 
-3. Install magenta v0.1.15 within the new environment:
+3. Install tensorflow 1.12.0 and magenta v0.1.15 within the new environment:
+
 ```
+<env directory>/bin/pip install tensorflow==1.12.0
 <env directory>/bin/pip install magenta==0.1.15
 
 ```
