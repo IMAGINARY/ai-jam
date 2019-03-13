@@ -188,6 +188,14 @@ class Controls {
     return this._metronomeButton.classList.contains('active')
   }
 
+  enableMetronome() {
+    this._metronomeButton.classList.add('active');
+  }
+
+  disableMetronome() {
+    this._metronomeButton.classList.remove('active');
+  }
+
   toggleMetronome() {
     this._toggle(this._metronomeButton)
   }
@@ -231,6 +239,21 @@ class Controls {
     this._magenta.selected().setResponseBars(numBars)
   }
 
+  setPianoCallBars(numBars) {
+    this._magenta.pianoInstance().setCallBars(numBars);
+  }
+
+  setPianoResponseBars(numBars) {
+    this._magenta.pianoInstance().setResponseBars(numBars);
+  }
+
+  setDrumCallBars(numBars) {
+    this._magenta.drumInstance().setCallBars(numBars);
+  }
+
+  setDrumResponseBars(numBars) {
+    this._magenta.drumInstance().setResponseBars(numBars);
+  }
 
   triggerMutate() {
     this._trigger(this._mutateButton)
@@ -251,6 +274,24 @@ class Controls {
     }
     this.setModel(j)
   }
+
+  setPianoTemperature(value) {
+    if (value < 0 || value > 127) {
+      return;
+    }
+
+    this._magenta.pianoInstance().setTemperature(value);
+  }
+
+  setDrumTemperature(value) {
+    if (value < 0 || value > 127) {
+      return;
+    }
+
+    this._magenta.drumInstance().setTemperature(value);
+  }
+
+
 
   adjustTemperature(amt) {
     var newVal = Math.max(Math.min(

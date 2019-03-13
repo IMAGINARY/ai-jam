@@ -16,3 +16,26 @@ hideManualControls: true
 # requirement.
 #
 skipStartScreen: false
+
+#
+# For how many bars will the AI listen before responding
+#
+pianoCallBars: 2
+drumCallBars: 2
+
+#
+# How many bars long will the AI's response be
+#
+pianoResponseBars: 2
+drumResponseBars: 2
+
+#
+# A number between [0,127] to control how random or similar the AIs response is.
+#
+pianoTemperature: 64
+drumTemperature: 64
+
+#
+# Whether the metronome can be heard
+#
+metronomeEnabled: true

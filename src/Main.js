@@ -48,7 +48,40 @@ cfgLoader.load('cfg/config.yml').then((cfg) => {
 		controls.hide();
 	}
 
-	magenta.on('active', () => {controls.reset()})
+	magenta.on('active', () => {
+		controls.reset();
+		if(cfg.pianoCallBars !== undefined) {
+			controls.setPianoCallBars(cfg.pianoCallBars);
+		}
+
+		if(cfg.pianoResponseBars !== undefined) {
+			controls.setPianoResponseBars(cfg.pianoResponseBars);
+		}
+
+		if(cfg.drumCallBars !== undefined) {
+			controls.setDrumCallBars(cfg.drumCallBars);
+		}
+
+		if(cfg.drumResponseBars !== undefined) {
+			controls.setDrumResponseBars(cfg.drumResponseBars);
+		}
+
+		if(cfg.metronomeEnabled !== undefined) {
+			if (cfg.metronomeEnabled) {
+				controls.enableMetronome();
+			} else {
+				controls.disableMetronome();
+			}
+		}
+
+		if(cfg.pianoTemperature !== undefined) {
+			controls.setPianoTemperature(cfg.pianoTemperature);
+		}
+
+		if(cfg.drumTemperature !== undefined) {
+			controls.setDrumTemperature(cfg.drumTemperature);
+		}
+	})
 
 	const sound = new Sound()
 	sound.load()
