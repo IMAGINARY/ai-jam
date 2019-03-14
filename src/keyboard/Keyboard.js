@@ -22,7 +22,7 @@ import buckets from 'buckets-js'
 import Buffer from 'Tone/core/Buffer'
 
 class Keyboard extends events.EventEmitter{
-	constructor(container, midi, magenta, notifier){
+	constructor(container, midi, magenta, notifier, cfg){
 		super()
 
 		this._container = container
@@ -55,7 +55,9 @@ class Keyboard extends events.EventEmitter{
 		/**
 		 * The piano interface
 		 */
-		this._keyboardInterface = new KeyboardElement(container, 48, 2)
+		const interactive = cfg.interactiveOnScreenPiano != undefined ?
+			cfg.interactiveOnScreenPiano : true;
+		this._keyboardInterface = new KeyboardElement(container, 48, 2, interactive);
 		this._keyboardInterface.on('keyDown', (note) => {
 			this.keyDown(note, undefined, false, this._drumMode)
 			this._emitKeyDown(note, undefined, false, this._drumMode)

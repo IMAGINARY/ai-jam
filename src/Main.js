@@ -41,7 +41,7 @@ cfgLoader.load('cfg/config.yml').then((cfg) => {
 	const magenta = new Magenta(status)
 	const midi = new Midi(magenta)
 	const glow = new Glow(container)
-	const keyboard = new Keyboard(container, midi, magenta, status)
+	const keyboard = new Keyboard(container, midi, magenta, status, cfg)
 	const controls = new Controls(container, magenta, keyboard)
 
 	if(cfg.hideManualControls) {

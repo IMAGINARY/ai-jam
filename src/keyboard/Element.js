@@ -24,8 +24,9 @@ const offsets = [0, 0.5, 1, 1.5, 2, 3, 3.5, 4, 4.5, 5, 5.5, 6]
 
 class KeyboardElement extends events.EventEmitter {
 
-	constructor(container, lowest=36, octaves=4){
+	constructor(container, lowest=36, octaves=4, interactive=true){
 		super()
+		this.interactive = interactive;
 		this._container = document.createElement('div')
 		this._container.id = 'keyboard'
 		container.setAttribute('touch-action', 'none')
@@ -72,7 +73,9 @@ class KeyboardElement extends events.EventEmitter {
 			fill.id = 'fill'
 			key.appendChild(fill)
 
-			this._bindKeyEvents(key)
+			if (this.interactive) {
+				this._bindKeyEvents(key);
+			}
 			this._keys[i] = key
 
 		}

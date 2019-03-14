@@ -39,3 +39,8 @@ drumTemperature: 64
 # Whether the metronome can be heard
 #
 metronomeEnabled: true
+
+#
+# Whether the on screen piano can be played with mouse/touch
+#
+interactiveOnScreenPiano: false
