@@ -41,6 +41,14 @@ drumTemperature: 64
 metronomeEnabled: true
 
 #
+# Metronome volume
+# (default: 0)
+# 0 = normal
+# -8 = low volume
+#
+metronomeVolume: -12
+
+#
 # Whether the on screen piano can be played with mouse/touch
 #
 interactiveOnScreenPiano: false

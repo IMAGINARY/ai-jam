@@ -84,7 +84,11 @@ cfgLoader.load('cfg/config.yml').then((cfg) => {
 	})
 
 	const sound = new Sound()
-	sound.load()
+	sound.load().then(() => {
+		if (cfg.metronomeVolume !== undefined) {
+			sound.metronomeVolume(cfg.metronomeVolume);
+		}
+	});
 
 	var isShifted = false
 	document.body.addEventListener('keydown', (e) => {

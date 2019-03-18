@@ -45,6 +45,10 @@ class Sound {
 		this._metronome.keyUp(note, Tone.now() + 0.15)
 	}
 
+	metronomeVolume(volume) {
+		this._metronome.volume = volume;
+	}
+
 	keyDown(note, time=Tone.now(), ai=false, drum=false){
 		if (note >= this._range[0] && note <= this._range[1]){
 			if (drum) {
