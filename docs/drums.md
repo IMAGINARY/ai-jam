@@ -29,3 +29,13 @@ http://www.terryewell.com/m116/Docs/GM1SoundSet.pdf (with pitches)
   - Pad 2: 38 (Snare Drum)
   - Pad 3: 42 (Closed Hi Hat)
   - Pad 4: 46 (Open Hi Hat)
+
+### Mapping instructions
+
+- With the "SELECT +" and "SELECT -" buttons move until "KIT" is highlighted on the MPX8 screen
+- Use the DATA wheel to move to kit i08
+- Press the first pad (Pad #5), it'll light up red
+- With the "SELECT +" and "SELECT -" buttons move until "MID" is highlighted on the MPX8 screen
+- Use the DATA wheel to change the number to the appropriate MIDI pitch (e.g. 45 for pad #5)
+- Press the next pad and use the data wheel to change the number... repeat for each pad
+- Press SELECT + and VOLUME + at the same time to save. Confirm with "VOLUME +"
