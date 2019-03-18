@@ -1,5 +1,5 @@
 
-$keyboardHeight : 100px;
+$keyboardHeight : 135px;
 $bottomHeight : 30px;
 
 body, #container{
@@ -14,7 +14,12 @@ body, #container{
 	#keyboard {
 		position: absolute;
 		bottom: $bottomHeight;
-		left: 0px;
+		height: $keyboardHeight;
+	}
+
+	#drum {
+		position: absolute;
+		bottom: $bottomHeight;
 		height: $keyboardHeight;
 	}
 

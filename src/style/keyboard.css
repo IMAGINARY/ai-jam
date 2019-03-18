@@ -10,9 +10,8 @@ $whiteHover : #aaa;
 $blackKeyMargin : $borderWidth + 2px;
 
 
-#keyboard {
+.instrument {
 	position: absolute;
-	width: calc(100% - 2 * #{$borderWidth});
 	user-select: none;
 	cursor: pointer;
 
@@ -85,4 +84,14 @@ $blackKeyMargin : $borderWidth + 2px;
 		}
 
 	}
+}
+
+#keyboard {
+	width: calc(70% - 2 * #{$borderWidth});
+	left: 0;
+}
+
+#drum {
+	width: calc(28% - 2 * #{$borderWidth});
+	left: calc(72% - 2 * #{$borderWidth});
 }
