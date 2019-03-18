@@ -59,7 +59,13 @@ class Keyboard extends events.EventEmitter{
 		 */
 		const interactive = cfg.interactiveOnScreenPiano != undefined ?
 			cfg.interactiveOnScreenPiano : true;
-		this._keyboardInterface = new KeyboardElement(container, 'keyboard', interactive, 48, 4, );
+		this._keyboardInterface = new KeyboardElement(
+			container,
+			'keyboard',
+			interactive,
+			cfg.onScreenPianoLowestNote !== undefined ? cfg.onScreenPianoLowestNote : 48,
+			cfg.onScreenPianoOctaveCount !== undefined ? cfg.onScreenPianoOctaveCount : 4
+		);
 		this._keyboardInterface.on('keyDown', (note) => {
 			this.keyDown(note, undefined, false, false)
 			this._emitKeyDown(note, undefined, false, false)
@@ -69,7 +75,12 @@ class Keyboard extends events.EventEmitter{
 			this._emitKeyUp(note, undefined, false, false)
 		})
 
-		this._drumInterface = new DrumElement(container, 'drum', interactive, [36, 38, 42, 46, 45, 50, 49, 51]);
+		this._drumInterface = new DrumElement(
+			container,
+			'drum',
+			interactive,
+			cfg.onScreenDrumPitches !== undefined ? cfg.onScreenDrumPitches : [36, 38, 42, 46, 45, 50, 49, 51]
+		);
 		this._drumInterface.on('keyDown', (note) => {
 			this.keyDown(note, undefined, false, true);
 			this._emitKeyDown(note, undefined, false, true);

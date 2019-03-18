@@ -44,3 +44,20 @@ metronomeEnabled: true
 # Whether the on screen piano can be played with mouse/touch
 #
 interactiveOnScreenPiano: false
+
+#
+# Number of octaves in the on screen piano
+#
+onScreenPianoOctaveCount: 4
+
+#
+# Lowest note in the on screen piano
+#
+
+onScreenPianoLowestNote: 48
+
+#
+# Pitches used for the on screen drum pad
+#
+
+onScreenDrumPitches: [36, 38, 42, 46, 45, 50, 49, 51]
