@@ -108,25 +108,28 @@ class Keyboard extends events.EventEmitter{
 		bottom.id = 'bottom'
 		container.appendChild(bottom)
 
-		this._downKeys = {};
+		this._downKeys = {
+			k: {},
+			d: {}
+		};
 
 		//the midi input
 		this._midi.on('keyDown', (note, time, ai, drum) => {
 			if (!ai) {
 				// if a key was already down and we didn't get a keyUp (MPX8 bug)
 				// then let's send the up first
-				if (this._downKeys[note] === true) {
+				if (this._downKeys[drum ? 'd' : 'k'][note] === true) {
 					this.keyUp(note, time, ai, drum)
 					this._emitKeyUp(note, time, ai, drum)
 				}
-				this._downKeys[note] = true;
+				this._downKeys[drum ? 'd' : 'k'][note] = true;
 			}
 			this.keyDown(note, time, ai, drum)
 			this._emitKeyDown(note, time, ai, drum)
 		})
 		this._midi.on('keyUp', (note, time, ai, drum) => {
 			if (!ai) {
-				this._downKeys[note] = false;
+				this._downKeys[drum ? 'd' : 'k'][note] = false;
 			}
 			this.keyUp(note, time, ai, drum)
 			this._emitKeyUp(note, time, ai, drum)
