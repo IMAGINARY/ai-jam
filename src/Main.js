@@ -123,6 +123,10 @@ cfgLoader.load('cfg/config.yml').then((cfg) => {
 			controls.toggleMetronome()
 		} else if (e.keyCode == 88) {  // S
 			controls.toggleSolo()
+		} else if (e.keyCode == 27) { // ESC
+			if (cfg.debug === true) {
+				keyboard.skipNextMidiEvent();
+			}
 		}
 	}, true)
 

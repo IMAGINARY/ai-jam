@@ -35,6 +35,7 @@ class Keyboard extends events.EventEmitter{
 		this._active = false
 		this._drumMode = false
 		this._soloMode = false
+		this._skipNextMidiEvent = false;
 
 		/**
 		 * The audio key keyboard
@@ -116,6 +117,11 @@ class Keyboard extends events.EventEmitter{
 		//the midi input
 		this._midi.on('keyDown', (note, time, ai, drum) => {
 			if (!ai) {
+				if (this._skipNextMidiEvent) {
+					console.log("DEBUG: MIDI event keyDown skipped");
+					this._skipNextMidiEvent = false;
+					return;
+				}
 				// if a key was already down and we didn't get a keyUp (MPX8 bug)
 				// then let's send the up first
 				if (this._downKeys[drum ? 'd' : 'k'][note] === true) {
@@ -129,6 +135,11 @@ class Keyboard extends events.EventEmitter{
 		})
 		this._midi.on('keyUp', (note, time, ai, drum) => {
 			if (!ai) {
+				if (this._skipNextMidiEvent) {
+					console.log("DEBUG: MIDI event keyUp skipped");
+					this._skipNextMidiEvent = false;
+					return;
+				}
 				this._downKeys[drum ? 'd' : 'k'][note] = false;
 			}
 			this.keyUp(note, time, ai, drum)
@@ -241,6 +252,11 @@ class Keyboard extends events.EventEmitter{
 	deactivate(){
 		container.classList.remove('focus')
 		this._active = false
+	}
+
+	// For debugging only
+	skipNextMidiEvent() {
+		this._skipNextMidiEvent = true;
 	}
 }
 

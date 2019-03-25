@@ -70,3 +70,14 @@ yarn run build
 
 to compile the sources into the public/build directory.
 
+## Debugging
+
+To enable the functionality below set the `debug` key to `true` in the config file.
+
+### Skipping MIDI events
+
+MIDI events sometimes get lost, that's a fact of life. It's useful to simulate MIDI events getting lost when
+debugging. If the debug mode is enabled you can press the ESC key in the keyboard to ignore the next MIDI event.
+For instance you can press ESC and then play a note in the piano to ignore the next MIDI keyDown event or hold a
+note, press ESC and then let go the note to ignore the next MIDI keyUp.
+
