@@ -45,18 +45,20 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    top: 5px;
-    width: 136px;
+    top: 12px;
+    width: 184px;
 
     input[type='radio'] {
       margin-left: 10px;
       margin-right: 10px;
+      width: 24px;
+      height: 24px;
     }
 
     input[type='radio']:after {
-      width: 12px;
-      height: 12px;
-      border-radius: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 24px;
       top: -1px;
       left: -1px;
       position: relative;
@@ -66,9 +68,9 @@
     }
 
     input[type='radio']:checked:after {
-      width: 12px;
-      height: 12px;
-      border-radius: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 24px;
       top: -1px;
       left: -1px;
       position: relative;
