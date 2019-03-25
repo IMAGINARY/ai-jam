@@ -130,17 +130,34 @@ cfgLoader.load('cfg/config.yml').then((cfg) => {
 		}
 	}, true)
 
+	// This function is called after the system has been idle
+	// for a while to reset some things.
+	function idleReset() {
+		keyboard.panic();
+	}
+
+	let lastInput = Date.now();
+	const idleResetSeconds = cfg.idleResetTime !== undefined ? cfg.idleResetTime : 60;
+	setInterval(() => {
+		if ((Date.now() - lastInput) > (idleResetSeconds * 1000)) {
+			lastInput = Date.now();
+			idleReset();
+		}
+	}, 1000);
+
 	keyboard.on('keyDown', (note, time, ai=false, drum=false) => {
 		sound.keyDown(note, time, ai, drum)
 		if (ai) {
 			glow.ai()
 		} else {
+			lastInput = Date.now();
 			glow.user()
 		}
 	})
 
 	keyboard.on('keyUp', (note, time, ai=false, drum=false) => {
 		sound.keyUp(note, time, ai, drum)
+		lastInput = Date.now();
 	})
 
 	midi.on('metronomeTick', (note) => {

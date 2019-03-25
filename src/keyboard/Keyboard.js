@@ -244,6 +244,11 @@ class Keyboard extends events.EventEmitter{
 		this._keyboardInterface.render(baseNote, octaves)
 	}
 
+	panic() {
+		this._keyboardInterface.panic();
+		this._drumInterface.panic();
+	}
+
 	activate(){
 		container.classList.add('focus')
 		this._active = true

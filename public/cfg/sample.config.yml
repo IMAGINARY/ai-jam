@@ -1,4 +1,9 @@
 #
+# Enable debug functionality (see README)
+#
+debug: false
+
+#
 # Hide the "Info" button in the UI (which shows the "credits / info" screen).
 #
 hideInfoButton: true
@@ -55,17 +60,24 @@ interactiveOnScreenPiano: false
 
 #
 # Number of octaves in the on screen piano
+# (default: 4)
 #
 onScreenPianoOctaveCount: 4
 
 #
 # Lowest note in the on screen piano
+# (default: 36)
 #
-
-onScreenPianoLowestNote: 48
+onScreenPianoLowestNote: 36
 
 #
 # Pitches used for the on screen drum pad
+# (default: [36, 38, 42, 46, 45, 50, 49, 51])
 #
-
 onScreenDrumPitches: [36, 38, 42, 46, 45, 50, 49, 51]
+
+#
+# Number of seconds idle before the system does a reset routine
+# (default: 60)
+#
+idleResetTime: 60
