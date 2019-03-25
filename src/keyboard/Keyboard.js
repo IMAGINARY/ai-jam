@@ -245,8 +245,10 @@ class Keyboard extends events.EventEmitter{
 	}
 
 	panic() {
-		this._keyboardInterface.panic();
-		this._drumInterface.panic();
+		this._keyboardInterface.panic(true);
+		this._keyboardInterface.panic(false);
+		this._drumInterface.panic(true);
+		this._drumInterface.panic(false);
 	}
 
 	activate(){
