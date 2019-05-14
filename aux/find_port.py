@@ -13,7 +13,7 @@ the names don't exactly match the identifier used to create them. This wasn't ne
 mac. 
 """
 
-MAX_WAIT = 5
+MAX_WAIT = 10
 
 if (len(sys.argv) == 1):
     print "Prints the fully qualified name of a MIDI port that matches a base port name"
