@@ -11,6 +11,62 @@
     "hideManualControls": {
       "type": "boolean",
       "default": true
+    },
+    "debug": {
+      "type": "boolean",
+      "default": false
+    },
+    "skipStartScreen": {
+      "type": "boolean",
+      "default": false
+    },
+    "pianoCallBars": {
+      "type": "integer"
+    },
+    "drumCallBars": {
+      "type": "integer"
+    },
+    "pianoResponseBars": {
+      "type": "integer"
+    },
+    "drumResponseBars": {
+      "type": "integer"
+    },
+    "pianoTemperature": {
+      "type": "integer"
+    },
+    "drumTemperature": {
+      "type": "integer"
+    },
+    "metronomeEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "metronomeVolume": {
+      "type": "integer"
+    },
+    "interactiveOnScreenPiano": {
+      "type": "boolean",
+      "default": true
+    },
+    "onScreenPianoOctaveCount": {
+      "type": "integer",
+      "default": 4
+    },
+    "onScreenPianoLowestNote": {
+      "type": "integer",
+      "default": 48
+    },
+    "onScreenDrumPitches": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "default": [36, 38, 42, 46, 45, 50, 49, 51]
+    },
+    "idleResetTime": {
+      "type": "integer",
+      "default": 60
     }
   }
 }

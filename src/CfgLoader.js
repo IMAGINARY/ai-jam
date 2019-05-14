@@ -31,11 +31,11 @@ export default class CfgLoader {
     return superagent.get(`${cfgUrl}?cache=${Date.now()}`)
       .then(response => yaml.safeLoad(response.text))
       .catch((e) => {
-        throw new Error(`Error parsing ${cfgFile}: ${e.message}`);
+        throw new Error(`Error parsing ${cfgUrl}: ${e.message}`);
       })
       .then((cfg) => {
         if (!this.validateCfg(cfg)) {
-          throw new Error(`Error in ${cfgFile}: ${this.ajv.errorsText(this.validateCfg.errors)}`);
+          throw new Error(`Error in ${cfgUrl}: ${this.ajv.errorsText(this.validateCfg.errors)}`);
         }
         return cfg;
       });
