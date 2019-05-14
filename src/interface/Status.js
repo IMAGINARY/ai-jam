@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import 'style/status.css'
+import 'style/status.scss'
 
 class Status {
   constructor(container){

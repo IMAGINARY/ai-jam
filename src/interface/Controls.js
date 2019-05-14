@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import 'style/controls.css'
+import 'style/controls.scss'
 
 class Controls {
 

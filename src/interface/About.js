@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import 'style/about.css'
+import 'style/about.scss'
 import events from 'events'
 
 const magentaLink = 'https://magenta.tensorflow.org/'

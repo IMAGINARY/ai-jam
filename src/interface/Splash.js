@@ -15,7 +15,7 @@
  */
 
 import Buffer from 'Tone/core/Buffer'
-import 'style/splash.css'
+import 'style/splash.scss'
 import events from 'events'
 import Loader from 'interface/Loader'
 

@@ -15,7 +15,7 @@
  */
 
 import events from 'events'
-import 'style/keyboard.css'
+import 'style/keyboard.scss'
 import 'pepjs'
 import {Note} from 'keyboard/Note'
 

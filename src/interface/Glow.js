@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import 'style/glow.css'
+import 'style/glow.scss'
 import Tone from 'Tone/core/Tone'
 
 class Glow {
