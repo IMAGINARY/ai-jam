@@ -16,6 +16,9 @@ MIDI_CLOCK=$!
 
 trap "kill ${MIDI_CLOCK}; exit 1" SIGINT SIGTERM EXIT INT
 
+# Wait for the MIDI clock to become available
+sleep 1
+
 FULL_CLOCK_PORT="$(${PYTHONENV}/bin/python ${DIR}/aux/find_port.py magenta_clock)"
 if [ "$FULL_CLOCK_PORT" == "" ]; then
   echo "MIDI Clock port not found"
